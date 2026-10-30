@@ -5,14 +5,14 @@
 # =============================================================================
 
 # TODO(step-4a): set the builder base image as node:20.11-slim and name the stage "builder".
-FROM node:20.19-slim AS builder
+FROM node:22-slim AS builder
 #   Do NOT use `node:latest` — we want reproducible builds across the cohort.
 
 WORKDIR /app
 
 # TODO(step-4b): copy package.json and package-lock.json, then install deps.
 COPY app/package*.json ./
-RUN npm ci --omit=dev && npm install tar@latest --omit=dev
+RUN npm ci --omit=dev
 
 # TODO(step-4c): copy the rest of the app source into /app.
 COPY app/ ./
@@ -22,7 +22,7 @@ COPY app/ ./
 # =============================================================================
 
 # TODO(step-4d): set the runtime base image (same tag as step-4a for consistency).
-FROM node:20.19-slim
+FROM node:22-slim
 
 WORKDIR /app
 
