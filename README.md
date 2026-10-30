@@ -41,7 +41,7 @@ Tick each box as you complete it. The workshop is **done** when all 10 are ticke
 3. Copy `.env.example` to `.env`.
 
 ### Step 2 — Look at the app (no changes)
-
+ 
 Open `app/src/index.js`. Notice the three routes:
 - `GET /` → `{ ok: true }`
 - `GET /health` → 200 if it can reach Postgres, 503 otherwise (the Dockerfile HEALTHCHECK hits this)
